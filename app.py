@@ -68,7 +68,7 @@ def classify(sentence):
         return_list.append((classes[r[0]], r[1]))
     # return tuple of intent and probability
     print(return_list)
-    return return_list
+    return json.dumps(return_list)
 
 def response(sentence, show_details=False):
     results = classify(sentence)
