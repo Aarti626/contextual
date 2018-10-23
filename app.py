@@ -98,7 +98,7 @@ def response(sentence, show_details=False):
     # print(classify("want to raise a ticket"))
     # print(classify("tell my ticket status"))
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host='0.0.0.0', port=port,debug=True)
-    # sentiment_anlysis()
+#     port = int(os.environ.get("PORT", 8080))
+#     app.run(host='0.0.0.0', port=port,debug=True)
+    print(classify("call customer support agent"))
     
