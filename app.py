@@ -5,6 +5,7 @@ import random
 import json
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
+ffrom flask import Flask, render_template, request, Response, stream_with_context, jsonify,flash,Markup
 stemmer = LancasterStemmer()
 
 app = Flask(__name__)
