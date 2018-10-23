@@ -8,6 +8,7 @@ from nltk.stem.lancaster import LancasterStemmer
 import os
 from flask import Flask, render_template, request, Response, stream_with_context, jsonify,flash,Markup
 stemmer = LancasterStemmer()
+from nltk import word_tokenize
 
 app = Flask(__name__)
 # restore all of our data structures
@@ -24,7 +25,7 @@ net = tflearn.fully_connected(net, 8)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
 net = tflearn.regression(net)
 
-model = tflearn.DNN(net, tensorboard_dir="./tflearn_logs")
+model = tflearn.DNN(net, tensorboard_dir="tflearn_logs")
 # import our chat-bot intents file
 
 with open('intents.json') as json_data:
@@ -33,6 +34,7 @@ with open('intents.json') as json_data:
 model.load('model.tflearn')
 def clean_up_sentence(sentence):
     # tokenize the pattern
+    nltk.download('punkt')
     sentence_words = nltk.word_tokenize(sentence)
     # stem each word
     sentence_words = [stemmer.stem(word.lower()) for word in sentence_words]
