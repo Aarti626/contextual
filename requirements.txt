@@ -1,4 +1,5 @@
 tensorflow>=1.0
 numpy
 flask
+tflearn
 nltk>=3.3
